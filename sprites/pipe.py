@@ -24,7 +24,7 @@ class PipePair(pg.sprite.Sprite):
         """
         pg.sprite.Sprite.__init__(self)
         self.image = pg.Surface((PipePair.PIECE_WIDTH, HEIGHT), SRCALPHA)
-        self.image.convert()  # speeds up blitting
+        self.image.convert()
         self.image.fill((0, 0, 0, 0))
         self.rect = self.image.get_rect()
         self.rect.x = float(WIDTH - 1)
@@ -63,7 +63,6 @@ class PipePair(pg.sprite.Sprite):
     def collides_with(self, bird):
         """Get whether the bird collides with a pipe in this PipePair.
         Arguments:
-        bird: The Bird which should be tested for collision with this
-            PipePair.
+        bird: The Bird which can collides with PipePair.
         """
         return pg.sprite.collide_mask(self, bird)
